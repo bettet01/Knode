@@ -1,0 +1,21 @@
+Api implementation list:
+
+api's are used to display and store data from the user. This is a list of Api sections that need to be created to store and produce the site
+
+
+
+
+user apis:
+
+
+
+performance apis:
+
+
+
+achievement apis:
+
+
+
+completion apis:
+

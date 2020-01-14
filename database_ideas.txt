@@ -1,0 +1,36 @@
+Database Notes
+
+databases fields need to include a json example of how to place data in the set at end of list
+
+
+example of how to write json!!!
+"Math": {
+	"addition": {
+		"description": "blah blag blah"
+		"use": "use description example"
+		"example": "11 + 7 = 18"
+		practice problems: ["7 + 8", "4 + 5", etc...]
+	}
+}
+
+
+User Data:
+
+
+
+
+performance data:
+
+
+
+
+completion data:
+
+
+
+
+achievement data:
+
+
+
+

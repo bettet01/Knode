@@ -1,0 +1,13 @@
+Metrics Ideas
+
+all metrics should be dynamically generated and all fields for viewing should be populated from the available fields
+
+
+Overall:
+
+
+
+
+Math:
+
+ 
