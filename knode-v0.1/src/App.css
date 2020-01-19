@@ -1,0 +1,11 @@
+.test {
+    background-color: #000000;
+}
+
+.logo {
+    position: absolute;
+    left: 450px;
+    top: 115px;
+    height: 550px;
+    width: 550px;
+}
