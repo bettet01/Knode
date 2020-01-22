@@ -1,11 +1,18 @@
 const functions = require('firebase-functions');
 const express = require('express')
-const admin = require('firebase-admin');
-
-
-// init express and add to app
 const app = express();
-admin.initializeApp();
-const db = admin.firestore();
+const FBAuth = require('./util/firebaseAuth');
+
+const cors = require('cors');
+app.use(cors());
+
+const { db } = require('./util/admin');
+
+const { signup } = require('./handlers/onUserSignup')
 
 
+// user routes
+app.post('/signup', signup);
+
+
+exports.api = functions.https.onRequest(app);
