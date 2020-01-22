@@ -1,11 +1,12 @@
-.test {
-    background-color: #000000;
+.background {
+    background: #131313 right top;
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
 }
 
 .logo {
-    position: absolute;
-    left: 450px;
-    top: 115px;
-    height: 550px;
-    width: 550px;
+    position: relative;
+    height: 50%;
+    width: auto;
 }
