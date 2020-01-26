@@ -13,7 +13,9 @@ exports.signup = (req,res) => {
         email: req.body.email,
         password: req.body.password,
         confirmPassword: req.body.confirmPassword,
-        handle: req.body.handle
+        handle: req.body.handle,
+        birthdate: req.body.birthdate,
+        phone: req.body.phone
     };
 
     const { valid, errors } = validateSignupData(newUser);
@@ -42,6 +44,8 @@ exports.signup = (req,res) => {
           handle: newUser.handle,
           email: newUser.email,
           createdAt: new Date().toISOString(),
+          phone: newUser.phone,
+          birthdate: newUser.birthdate,
           userId
         };
         return db.doc(`/users/${newUser.handle}`).set(userCredentials);
