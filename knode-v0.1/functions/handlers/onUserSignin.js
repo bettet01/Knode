@@ -35,4 +35,6 @@ exports.login = (req, res) => {
           .status(403)
           .json({ general: 'Wrong credentials, please try again' });
       });
-  };
+
+  return console.log("created")
+};
