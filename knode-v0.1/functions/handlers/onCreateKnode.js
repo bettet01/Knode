@@ -1,4 +1,4 @@
-// no testing done yet, not sure if this works
+// TODO: this needs to push the path of the created object to the user in a list, so that we can grab their created info on their profile page.
 
 const { db } = require('../util/admin');
 
@@ -21,6 +21,7 @@ exports.createKnode = (req, res) => {
   .set(knodeData)
   .then((doc) => {
     let batch = db.batch();
+    let createdData = [];
 
     if(req.body.hasOwnProperty('descriptions')){
       const descriptionsData = {
@@ -32,6 +33,7 @@ exports.createKnode = (req, res) => {
       };
       let descriptionsPath = db.doc(`knodeData/${pathData.subject}/${pathData.discipline}/${pathData.knodeName}`).collection('descriptions').doc()
       batch.set(descriptionsPath , descriptionsData)
+      createdData.push(descriptionsPath)
     }
     if(req.body.hasOwnProperty('examples')){
       const examplesData =  {
@@ -43,6 +45,7 @@ exports.createKnode = (req, res) => {
       };
       let examplesPath = db.doc(`knodeData/${pathData.subject}/${pathData.discipline}/${pathData.knodeName}`).collection('examples').doc()
       batch.set(examplesPath, examplesData)
+      createdData.push(examplesPath)
     }
     if(req.body.hasOwnProperty('practices')){
       const practicesData = {
@@ -55,7 +58,12 @@ exports.createKnode = (req, res) => {
       }
       let practicesPath = db.doc(`knodeData/${pathData.subject}/${pathData.discipline}/${pathData.knodeName}`).collection('practices').doc()
       batch.set(practicesPath, practicesData)
+      createdData.push(practicesPath)
       }
+
+    // push the created documents path to the user data
+    let userPath = db.doc(`users/${req.body.handle}`)
+      batch.update(userPath, { createdKnodes: createdData} )
 
     return batch.commit()
     })
