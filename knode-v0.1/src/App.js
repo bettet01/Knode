@@ -22,6 +22,7 @@ import store from './redux/store';
 import development from './pages/development.jsx';
 import Login from './pages/login.jsx'
 import signup from './pages/signup.jsx'
+import profile from './pages/profile.jsx'
 
 
 
@@ -39,6 +40,7 @@ function App() {
             <Route exact path='/' component={development} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={signup} />
+            <Route exact path="/profile" component={profile} />
           </Router>
         </div>
       </Provider>
