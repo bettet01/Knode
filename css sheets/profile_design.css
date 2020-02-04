@@ -1,0 +1,17 @@
+body { 
+background-color:rgb(0, 0, 255); 
+color: white;
+text-align: center;
+}
+
+.title{ 
+background-color:rgb(0,0, 255);
+color: gold;
+text-align: center;
+
+} 
+
+form {
+font-family: fantasy;
+
+}
