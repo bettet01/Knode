@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
 
+// Authroute is a util Route that check to make sure the user is authenticated
+import Authroute from './util/AuthRoute'
 // used to consume our apis 
 import axios from 'axios'
 
@@ -22,6 +24,7 @@ import store from './redux/store';
 import development from './pages/development.jsx';
 import Login from './pages/login.jsx'
 import signup from './pages/signup.jsx'
+import home from './pages/home'
 
 
 
@@ -39,6 +42,8 @@ function App() {
             <Route exact path='/' component={development} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={signup} />
+            <Authroute exact path='/home' component={home}/>
+            <Authroute exact path='/createknode' />
           </Router>
         </div>
       </Provider>
