@@ -13,7 +13,9 @@ import Button from '@material-ui/core/Button';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import TabPanel from '@material-ui/core'
+import TabPanel, { Card } from '@material-ui/core';
+import Avatar from '@material-ui/core/Avatar'
+
 
 // Redux stuff
 import { connect } from 'react-redux';
@@ -25,21 +27,28 @@ const styles = (theme) => ({
   ...theme.classes
 });
 
-
 const Profile = props =>{ 
 // Project: Begin UI for Profile Page 
 // Source: For Wireframe Plase Vist https://www.canva.com/teams
-// Project WIPS: Tabs(questionable choice in feature name but whatever :/)  
+// Project WIPS: Avatar and Bio Page  
+
+const { classes} = props;
 
 return(
     <Grid container spacing={3}>
       <Grid item xs={3}>
-       Test Test Test
+       Profile Picture and Bio Section
+      <Avatar >K </Avatar> 
+
+      <Paper elevation={5}  >This Section Will Hold the Bio Page </Paper>
+
+        
+      everything looks good here. will go over styling monday.
 
       </Grid>
         
       <Grid item xs={9}>
-      <AppBar position="static">
+      <AppBar className={classes.appBar} position="static">
   <Tabs>
     <Tab label="Item One"  />
     <Tab label="Item Two"  />
