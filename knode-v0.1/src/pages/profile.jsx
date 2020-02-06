@@ -42,15 +42,7 @@ return(
       <Paper elevation={5}  >This Section Will Hold the Bio Page </Paper>
 
         
-<<<<<<< HEAD
-<<<<<<< HEAD
       everything looks good here. will go over styling monday.
-=======
-        
->>>>>>> Started Work on the Profile Page by Adding Avatar and Bio Sections but need work on Styling to match wire frame on Canva
-=======
-      everything looks good here. will go over styling monday.
->>>>>>> code review for profile page
 
       </Grid>
         
