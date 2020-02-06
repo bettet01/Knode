@@ -27,11 +27,12 @@ const styles = (theme) => ({
   ...theme.classes
 });
 
-
 const Profile = props =>{ 
 // Project: Begin UI for Profile Page 
 // Source: For Wireframe Plase Vist https://www.canva.com/teams
 // Project WIPS: Avatar and Bio Page  
+
+const { classes} = props;
 
 return(
     <Grid container spacing={3}>
@@ -47,7 +48,7 @@ return(
       </Grid>
         
       <Grid item xs={9}>
-      <AppBar position="static">
+      <AppBar className={classes.appBar} position="static">
   <Tabs>
     <Tab label="Item One"  />
     <Tab label="Item Two"  />

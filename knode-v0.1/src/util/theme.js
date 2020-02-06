@@ -97,6 +97,9 @@ export default {
       '& a': {
         margin: '20px 10px'
       }
-    }
+    },
+    appBar: {
+      marginTop: '100px',
+    },
   }
 };
