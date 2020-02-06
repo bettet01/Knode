@@ -42,7 +42,7 @@ return(
       <Paper elevation={5}  >This Section Will Hold the Bio Page </Paper>
 
         
-        
+      everything looks good here. will go over styling monday.
 
       </Grid>
         
