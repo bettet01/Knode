@@ -100,6 +100,7 @@ export default {
     },
     appBar: {
       marginTop: '100px',
+      marginBottom: '100px',
     },
   }
 };
