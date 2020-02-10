@@ -5,7 +5,9 @@ import { NavLink } from 'react-router-dom'
 const Home = props => {
   return (
     <div>
-      <NavLink to={'/createknode'}>Goto Knode Creation</NavLink>
+      <NavLink to={'/createKnode'}>Goto Knode Creation</NavLink>
+      <br/>
+      <NavLink to={'/profile'}>Profile</NavLink>
     </div>
   )
 }
