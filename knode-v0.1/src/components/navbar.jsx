@@ -43,7 +43,8 @@ const useStyles = makeStyles(theme => ({
     display: 'none',
     textDecoration: 'none',
     [theme.breakpoints.up('sm')]: {
-      display: 'block',
+      display: 'inline-block',
+      marginLeft: '10px'
     },
   },
   search: {
@@ -182,7 +183,7 @@ const Navbar = props => {
 
   return (
     <div>
-           <AppBar color='classes.primary' position="static">
+      <AppBar color='classes.primary' position='relative'>
         <Toolbar>
           <IconButton
             edge="start"
@@ -192,9 +193,11 @@ const Navbar = props => {
           >
             <MenuIcon />
           </IconButton>
-          <Typography className={classes.title} variant="h5" noWrap>
-            Knode
-          </Typography>
+          <NavLink to='/'style={{textDecoration: 'none', color: 'black'}} >
+            <Typography className={classes.title} variant="h5" noWrap>
+              Knode
+            </Typography>
+          </NavLink>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
@@ -209,6 +212,8 @@ const Navbar = props => {
             />
           </div>
           <div className={classes.grow} />
+          {
+              props.authenticated &&
           <div className={classes.sectionDesktop}>
             <IconButton aria-label="show 4 new mails" color="inherit">
               <Badge badgeContent={3} color="secondary">
@@ -231,6 +236,22 @@ const Navbar = props => {
               <AccountCircle />
             </IconButton>
           </div>
+          }
+          {
+            !props.authenticated &&
+            <div>
+              <Typography  className={classes.title}>
+                <NavLink style={{textDecoration: 'none', color: 'black', marginLeft: '10px'}} to='/signup' >
+                    Signup
+                </NavLink>
+              </Typography>
+              <Typography  className={classes.title}>
+                <NavLink style={{textDecoration: 'none', color: 'black', marginLeft: '10px'}} to='/login' >
+                    Sign In
+                </NavLink>
+              </Typography>
+            </div>
+          }
           <div className={classes.sectionMobile}>
             <IconButton
               aria-label="show more"
@@ -252,6 +273,7 @@ const Navbar = props => {
 
 const mapStateToProps = (state) => ({
   user: state.user,
+  authenticated: state.user.authenticated,
 });
 
 const mapActionsToProps = {
