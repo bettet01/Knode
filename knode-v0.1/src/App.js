@@ -20,12 +20,16 @@ import defaultTheme from './util/theme'
 import { Provider } from 'react-redux';
 import store from './redux/store';
 
+//Components -- stand alone items that can be added to pages as needed
+import Navbar from './components/navbar'
+
 //Pages -- Pages for the App created by us
 import development from './pages/development.jsx';
-import Login from './pages/login.jsx'
+import login from './pages/login.jsx'
 import signup from './pages/signup.jsx'
 import profile from './pages/profile.jsx'
 import home from './pages/home'
+import CreateKnode from './pages/createKnode'
 
 
 
@@ -42,11 +46,13 @@ function App() {
       <Provider store={store} >
         <div className='container'>
           <Router>
+            <Navbar />
             <Route exact path='/' component={development} />
-            <Route exact path="/login" component={Login} />
+            <Route exact path="/login" component={login} />
             <Route exact path="/signup" component={signup} />
-            <Route exact path="/profile" component={profile} />
+            <Authroute exact path="/profile" component={profile} />
             <Authroute exact path='/home' component={home}/>
+            <Authroute exact path='/create' component={CreateKnode} />
             <Authroute exact path='/createknode' />
           </Router>
         </div>
