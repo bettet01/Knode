@@ -150,7 +150,7 @@ const CreateKnode = props => {
       </StyledMenu>
       </Grid>
       <Grid item lg>
-      Other Side
+      Other Side add another commit
       </Grid>
       </Grid>
     </div>
