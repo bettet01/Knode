@@ -252,7 +252,9 @@ const Navbar = props => {
               </Typography>
             </div>
           }
-          <div className={classes.sectionMobile}>
+          {
+            props.authenticated &&
+            <div className={classes.sectionMobile}>
             <IconButton
               aria-label="show more"
               aria-controls={mobileMenuId}
@@ -263,6 +265,8 @@ const Navbar = props => {
               <MoreIcon />
             </IconButton>
           </div>
+          }
+
         </Toolbar>
       </AppBar>
       {renderMobileMenu}

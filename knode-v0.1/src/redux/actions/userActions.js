@@ -20,7 +20,7 @@ export const signupUser = (signupData, history) => (dispatch) => {
       console.log(res)
       setAuthorizationHeader(res.data.token);
       dispatch({ type: userTypes.CREATE_USER})
-      history.push('/profile')
+      history.push('/home')
     })
 }
 
