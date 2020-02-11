@@ -1,15 +1,15 @@
 export default {
   palette: {
       primary: {
-        light: '#33c9dc',
-        main: '#00bcd4',
-        dark: '#008394',
+        light: '#5ce1e6',
+        main: '#2a2ce8',
+        dark: '#222629',
         contrastText: '#fff'
       },
       secondary: {
-        light: '#ff6333',
-        main: '#ff3d00',
-        dark: '#b22a00',
+        light: '#5ce1e6',
+        main: '#2a2ce8',
+        dark: '#222629',
         contrastText: '#fff'
       }
     },
@@ -54,7 +54,37 @@ export default {
     },
     paper: {
       padding: 20,
-      marginTop: 35
+      marginTop: 35,
+      margin: 'auto',
+    }, 
+    profileAppbar:{
+      margin: 'auto',
+      marginTop: '40px',
+      width: '60%'
+    },
+    profilePaper: { 
+      marginTop: 35,
+      margin: 'auto',
+      width: '350px',
+      textAlign: 'center',
+      minHeight: '100px'
+    },
+    profileTab: {
+      margin: 'auto'
+    },
+    grid: {
+      margin: 'auto'
+    },
+    avatarImage: {
+      width: '200px',
+      height: '200px',      
+      margin: 'auto',
+      marginTop: '40px',
+      marginBottom: '40px' 
+    },
+    profileHeader: {
+      marginTop: '50px',
+      textAlign: 'center'
     },
     profile: {
       '& .image-wrapper': {

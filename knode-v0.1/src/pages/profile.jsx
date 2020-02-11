@@ -36,23 +36,17 @@ const { classes} = props;
 
 return(
     <Grid container spacing={3}>
-      <Grid item xs={3}>
-       Profile Picture and Bio Section
-      <Avatar >K </Avatar> 
-
-      <Paper elevation={5}  >This Section Will Hold the Bio Page </Paper>
-
-        
-      everything looks good here. will go over styling monday.
-
-      </Grid>
-        
+      <Grid className={classes.grid} item xs={3}>
+       <h5 className={classes.profileHeader}> Profile Picture and Bio Section </h5>
+      <Avatar className={classes.avatarImage} >K </Avatar> 
+      <Paper className={classes.profilePaper} elevation={5}> This Section Will Hold the Bio Page </Paper>
+      </Grid>   
       <Grid item xs={9}>
-      <AppBar className={classes.appBar} position="static">
+      <AppBar className={classes.profileAppbar} position="static">
   <Tabs>
-    <Tab label="Item One"  />
-    <Tab label="Item Two"  />
-    <Tab label="Item Three" />
+    <Tab className={classes.profileTab} label="Learning "  />
+    <Tab className={classes.profileTab} label="Created"  />
+    <Tab className={classes.profileTab} label="Metrics" />
   </Tabs>
 </AppBar>
 
