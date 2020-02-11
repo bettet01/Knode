@@ -266,7 +266,6 @@ const Navbar = props => {
             </IconButton>
           </div>
           }
-
         </Toolbar>
       </AppBar>
       {renderMobileMenu}
