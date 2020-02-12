@@ -52,8 +52,18 @@ const Signup = props => {
     password: '',
     confirmPassword: '',
     birthdate: '',
-    phone: ''
+    phone: '',
+    errors: {}
   });
+
+  React.useEffect(() => {
+    setSignupData({
+      ...signupData,
+      errors: props.UI.errors
+    })
+    let errors = props.UI
+    console.log(errors)
+  }, [props.UI] );
 
 const handleSubmit = (event) => {
   event.preventDefault();
@@ -121,6 +131,7 @@ const handleSubmit = (event) => {
 
 const mapStateToProps = (state) => ({
   user: state.user,
+  UI: state.UI
 });
 
 const mapActionsToProps = {
