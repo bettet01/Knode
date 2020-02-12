@@ -24,6 +24,35 @@ import { signupUser } from '../redux/actions/userActions';
 
 // set the styles from the global styles file
 const styles = (theme) => ({
+  grid: {
+    margin: 'auto'
+  },
+  profileHeader: {
+    marginTop: '50px',
+    textAlign: 'center'
+  },
+  avatarImage: {
+    width: '200px',
+    height: '200px',      
+    margin: 'auto',
+    marginTop: '40px',
+    marginBottom: '40px' 
+  },
+  profileAppbar:{
+    margin: 'auto',
+    marginTop: '40px',
+    width: '60%'
+  },
+  profilePaper: { 
+    marginTop: 35,
+    margin: 'auto',
+    width: '350px',
+    textAlign: 'center',
+    minHeight: '100px'
+  },
+  profileTab: {
+    margin: 'auto'
+  },
   ...theme.classes
 });
 

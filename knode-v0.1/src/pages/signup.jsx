@@ -17,11 +17,35 @@ import { signupUser } from '../redux/actions/userActions';
 
 // set the styles from the global styles file
 const styles = (theme) => ({
+  textfield: {
+    width: '90%'
+  },
+  paper: {
+    textAlign: "center", 
+    marginTop: "20%", 
+    marginLeft: "30px", 
+    marginRight: "30px"
+  },
+  logo: {
+    height: 250,
+  },
+  loginBox: {
+    margin: '20%', 
+    width: '450px', 
+    height: '412px'
+  },
+  signupButton: {
+    background: 'linear-gradient(45deg, #2a2ce8 30%, #5ce1e6 90%)',
+    marginLeft: '30%', 
+    marginRight: 'auto', 
+    marginTop: '20px'
+  },
   ...theme.classes
 });
 
 
 const Signup = props => {
+  const { classes } = props;
   const [signupData, setSignupData] = useState({
     email: '',
     handle: '',
@@ -56,37 +80,40 @@ const handleSubmit = (event) => {
   return(
     <Grid container spacing={3}>
       <Grid item md>
-        <Paper elevation={3} style={{ textAlign: "center", marginTop: "20%", marginLeft: "30px", marginRight: "30px"}}>
-        <img src={AppIcon} alt="logo" style={{ height: 250 }}/>
+        <Paper elevation={3} className={classes.paper}>
+        <img src={AppIcon} alt="logo" className={classes.logo} />
         <Typography varient="main" style={{ padding: 30, width: "75%", marginLeft: "auto", marginRight: "auto"}}>
         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
         </Typography>
         </Paper>
       </Grid>
       <Grid item md>
-        <form onSubmit={handleSubmit} style={{ marginTop: "20%",marginLeft:"85px"}}>
-          <TextField onChange={handleChange} id="email" label="Email" type="email" name="email" /> 
-          <br/>
-          <TextField onChange={handleChange} id="handle" label="Username" type="username" name="handle" /> 
-          <br/>
-          <TextField onChange={handleChange} id="password" label="Password" type="password" name="password" />
-          <br/>
-          <TextField onChange={handleChange} id="confirmPassword" label="Confirm Password" type="password" name="confirmPassword" />
-          <br/>
-          <TextField onChange={handleChange} id="birthdate" label="Birthdate" type="birthdate" name="birthdate" />
-          <br/>
-          <TextField  onChange={handleChange} id="phone" label="Phone" type="text" name="phone" />
-          <br/>
-          <br/>
-          <Button
-                type="submit"
-                variant="contained"
-                color="primary"
-                
-              >
-                Get Started
-              </Button>
-        </form>
+        <Paper className={classes.loginBox} >
+          <form onSubmit={handleSubmit} style={{ marginTop: "70px",marginLeft: '35px'}}>
+            <TextField onChange={handleChange} style={{ marginTop: "20px", width: '90%'}} id="email" label="Email" type="email" name="email" /> 
+            <br/>
+            <TextField onChange={handleChange} className={classes.textfield} id="handle" label="Username" type="username" name="handle" /> 
+            <br/>
+            <TextField onChange={handleChange} className={classes.textfield} id="password" label="Password" type="password" name="password" />
+            <br/>
+            <TextField onChange={handleChange} className={classes.textfield} id="confirmPassword" label="Confirm Password" type="password" name="confirmPassword" />
+            <br/>
+            <TextField onChange={handleChange} className={classes.textfield} id="birthdate" label="Birthdate" type="birthdate" name="birthdate" />
+            <br/>
+            <TextField  onChange={handleChange} className={classes.textfield} id="phone" label="Phone" type="text" name="phone" />
+            <br/>
+            <br/>
+            <Button
+                  className={classes.signupButton}
+                  type="submit"
+                  variant="contained"
+                  color="primary"
+                  
+                >
+                  Get Started
+                </Button>
+          </form>
+        </Paper>
       </Grid>
     </Grid>
   )
