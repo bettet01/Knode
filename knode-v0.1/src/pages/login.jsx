@@ -17,6 +17,36 @@ import { loginUser } from '../redux/actions/userActions';
 
 // set the styles from the global styles file
 const styles = (theme) => ({
+  form: {
+    textAlign: 'center'
+  },
+  image: {
+    margin: '15px auto 15px auto',
+    height: '175px',
+  },
+  pageTitle: {
+    color: 'white',
+    margin: '10px auto 10px auto'
+  },
+  paper: {
+    padding: 20,
+    marginTop: 35,
+    margin: 'auto',
+  }, 
+  textField: {
+    margin: '10px auto 10px auto'
+  },
+  customError: {
+    color: 'red',
+    fontSize: '0.8rem',
+    marginTop: 10
+  },
+  loginButton: {
+    background: 'linear-gradient(45deg, #2a2ce8 30%, #5ce1e6 90%)',
+    marginTop: 20,
+    marginBottom: 20,
+    position: 'relative'
+  },
     ...theme.classes
   });
 
@@ -88,7 +118,7 @@ const Login = props => {
                 type="submit"
                 variant="contained"
                 color="primary"
-                className={classes.button}
+                className={classes.general.button, classes.loginButton}
               >
                 Login
               </Button>

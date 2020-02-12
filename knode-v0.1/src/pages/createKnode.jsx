@@ -23,9 +23,17 @@ import AssessmentIcon from '@material-ui/icons/Assessment';
 import TextField from '@material-ui/core/TextField'
 
 
-import { Grid, Paper, Button } from '@material-ui/core';
+import { Grid, Paper, Button, MenuList } from '@material-ui/core';
 
 // set the styles from the global styles file
+const styles = (theme) => ({
+  form: {
+    textAlign: 'center'
+  },
+  ...theme.classes
+});
+
+//styles for the dropdown MenuList
 const StyledMenu = withStyles({
   paper: {
     border: '1px solid #d3d4d5',
@@ -56,10 +64,6 @@ const StyledMenuItem = withStyles(theme => ({
     },
   },
 }))(MenuItem);
-
-const styles = (theme) => ({
-  ...theme.classes
-});
 
 
 const CreateKnode = props => {
