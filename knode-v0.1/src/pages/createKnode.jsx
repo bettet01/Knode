@@ -20,9 +20,10 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import AddToQueueIcon from '@material-ui/icons/AddToQueue';
 import AssessmentIcon from '@material-ui/icons/Assessment';
+import TextField from '@material-ui/core/TextField'
 
 
-import { Grid } from '@material-ui/core';
+import { Grid, Paper, Button } from '@material-ui/core';
 
 // set the styles from the global styles file
 const StyledMenu = withStyles({
@@ -63,6 +64,7 @@ const styles = (theme) => ({
 
 const CreateKnode = props => {
   const { classes} = props;
+  const [knodeModules, setKnodeModules] = React.useState([])
   const [subjectObject, setSubjectObject] =  React.useState('')
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -78,10 +80,16 @@ const CreateKnode = props => {
     setAnchorEl(null);
   };
 
+  const handleSubmit = event => {
+    event.preventDefault();
+    console.log('it did it!')
+  };
+
   return (
     <div>
       <Grid container className={classes.form}>
       <Grid item lg>
+      <form onSubmit={handleSubmit}>
       <FormControl>
         <InputLabel id='subject'>Subject</InputLabel>
         <Select
@@ -112,6 +120,8 @@ const CreateKnode = props => {
         </Select>
       </FormControl>
       <br/ >
+      <TextField style={{width: '300px'}} id="standard-basic" label="New Knode Name" />
+      <br />
       <Fab 
         onClick={handleClick}
         style={{marginTop: '20px'}}
@@ -148,9 +158,45 @@ const CreateKnode = props => {
           <ListItemText primary="Practice" />
         </StyledMenuItem>
       </StyledMenu>
+      <div style={{marginTop: '400px'}}>
+      <FormControl>
+        <InputLabel id='prerequisites'>Prerequisites</InputLabel>
+        <Select
+          style={{width: '300px'}}
+          labelId='prerequisites'
+          id='prerequisites-select' 
+          value={subjectObject}
+          onChange={handleChange}
+        >
+          <MenuItem value={10}>Ten</MenuItem>
+          <MenuItem value={20}>Twenty</MenuItem>
+          <MenuItem value={30}>Thirty</MenuItem>
+        </Select>
+      </FormControl>
+      <br />
+      <FormControl>
+        <InputLabel id='future-connections'>Future Connections</InputLabel>
+        <Select
+          style={{width: '300px'}}
+          labelId='future-connections'
+          id='future-connections-select' 
+          value={subjectObject}
+          onChange={handleChange}
+        >
+          <MenuItem value={10}>Ten</MenuItem>
+          <MenuItem value={20}>Twenty</MenuItem>
+          <MenuItem value={30}>Thirty</MenuItem>
+        </Select>
+      </FormControl>
+      <br />
+      <Button style={{marginTop: '20px'}} variant='contained' color='primary' type='submit' >Submit</Button>
+      </div>
+      </form>
       </Grid>
       <Grid item lg>
-      Other Side add another commit
+      <Paper style={{margin: '10px', width: '90%', height: '90vh'}}>
+
+      </Paper>
       </Grid>
       </Grid>
     </div>
