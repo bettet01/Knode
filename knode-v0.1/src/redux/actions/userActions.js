@@ -8,8 +8,9 @@ export const loginUser = (userData, history) => (dispatch) => {
     axios
       .post('/login', userData)
       .then((res) => {
+        console.log(res)
         resStatus = res.status;
-        return res.json()
+        return res.data;
       })
       .then(data => {
         if(resStatus !== 200) {
