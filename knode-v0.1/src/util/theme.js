@@ -1,3 +1,5 @@
+import { withTheme } from "@material-ui/core";
+
 export default {
   palette: {
       primary: {
@@ -15,6 +17,7 @@ export default {
     },
   classes: {
     typography: {
+      color: 'white',
       useNextVariants: true
     },
     form: {
@@ -25,6 +28,7 @@ export default {
       height: '175px',
     },
     pageTitle: {
+      color: 'white',
       margin: '10px auto 10px auto'
     },
     textField: {
