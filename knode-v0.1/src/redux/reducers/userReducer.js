@@ -1,4 +1,4 @@
-import { userTypes } from '../types'
+import userTypes from '../types'
 
 
 

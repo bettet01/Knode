@@ -1,0 +1,73 @@
+[debug] [2020-02-12T17:01:59.192Z] ----------------------------------------------------------------------
+[debug] [2020-02-12T17:01:59.194Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Ethan\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2020-02-12T17:01:59.194Z] CLI Version:   7.12.1
+[debug] [2020-02-12T17:01:59.194Z] Platform:      win32
+[debug] [2020-02-12T17:01:59.194Z] Node Version:  v10.16.3
+[debug] [2020-02-12T17:01:59.195Z] Time:          Wed Feb 12 2020 11:01:59 GMT-0600 (Central Standard Time)
+[debug] [2020-02-12T17:01:59.195Z] ----------------------------------------------------------------------
+[debug] [2020-02-12T17:01:59.195Z] 
+[debug] [2020-02-12T17:01:59.235Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-02-12T17:01:59.236Z] > authorizing via signed-in user
+[debug] [2020-02-12T17:01:59.236Z] [iam] checking project knode-795ef for permissions ["firebase.projects.get"]
+[debug] [2020-02-12T17:01:59.238Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-02-12T17:01:59.238Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-02-12T17:01:59.523Z] <<< HTTP RESPONSE 200
+[debug] [2020-02-12T17:01:59.554Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/knode-795ef:testIamPermissions  
+
+[debug] [2020-02-12T17:01:59.846Z] <<< HTTP RESPONSE 200
+[debug] [2020-02-12T17:01:59.847Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/knode-795ef  
+ 
+[debug] [2020-02-12T17:02:00.124Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\Ethan\Documents\Coding\jsapps\Knode\knode-v0.1'...
+[info] 
+[debug] [2020-02-12T17:02:00.128Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/knode-795ef/webApps/-/config  
+ 
+[debug] [2020-02-12T17:02:00.498Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: build
+[info] +  hosting: Local server: http://localhost:5000
+[warn] !  Your requested "node" version "8" doesn't match your global version "10"
+[info] +  functions: Emulator started at http://localhost:5001
+[info] i  functions: Watching "C:\Users\Ethan\Documents\Coding\jsapps\Knode\knode-v0.1\functions" for Cloud Functions...
+[debug] [2020-02-12T17:02:02.711Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-02-12T17:02:02.711Z] [worker-pool] Adding worker with key ~diagnostic~, total=1
+[debug] [2020-02-12T17:02:02.712Z] [worker-pool] submitWork(triggerId=)
+[debug] [2020-02-12T17:02:02.712Z] [worker-~diagnostic~-09b1666a-465a-4511-87ce-a7d2fdd8c0a2]: Assigning socketPath: \\?\pipe\C:\Users\Ethan\Documents\Coding\jsapps\Knode\knode-v0.1\functions\2948
+[debug] [2020-02-12T17:02:02.713Z] [worker-~diagnostic~-09b1666a-465a-4511-87ce-a7d2fdd8c0a2]: BUSY
+[debug] [2020-02-12T17:02:03.441Z] [runtime-status] [2948] Functions runtime initialized. {"cwd":"C:\\Users\\Ethan\\Documents\\Coding\\jsapps\\Knode\\knode-v0.1\\functions","node_version":"10.16.3"}
+[debug] [2020-02-12T17:02:03.442Z] [runtime-status] [2948] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-02-12T17:02:03.458Z] [runtime-status] [2948] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.1","resolution":"C:\\Users\\Ethan\\Documents\\Coding\\jsapps\\Knode\\knode-v0.1\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2020-02-12T17:02:03.470Z] [runtime-status] [2948] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\Ethan\\Documents\\Coding\\jsapps\\Knode\\knode-v0.1\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2020-02-12T17:02:03.471Z] [runtime-status] [2948] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\Ethan\\Documents\\Coding\\jsapps\\Knode\\knode-v0.1\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2020-02-12T17:02:10.364Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2020-02-12T17:02:10.365Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2020-02-12T17:02:10.365Z] Accepted request POST /knode-795ef/us-central1/api/login --> api
+[debug] [2020-02-12T17:02:10.368Z] [worker-pool] addWorker(api)
+[debug] [2020-02-12T17:02:10.368Z] [worker-pool] Adding worker with key api, total=1
+[debug] [2020-02-12T17:02:10.368Z] [worker-pool] submitWork(triggerId=api)
+[debug] [2020-02-12T17:02:10.368Z] [worker-api-5f2eca37-26dc-4f37-8304-a04b0949e076]: Assigning socketPath: \\?\pipe\C:\Users\Ethan\Documents\Coding\jsapps\Knode\knode-v0.1\functions\14784
+[debug] [2020-02-12T17:02:10.368Z] [worker-api-5f2eca37-26dc-4f37-8304-a04b0949e076]: BUSY
+[debug] [2020-02-12T17:02:10.990Z] [runtime-status] [14784] Functions runtime initialized. {"cwd":"C:\\Users\\Ethan\\Documents\\Coding\\jsapps\\Knode\\knode-v0.1\\functions","node_version":"10.16.3"}
+[debug] [2020-02-12T17:02:10.992Z] [runtime-status] [14784] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2020-02-12T17:02:10.998Z] [runtime-status] [14784] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.9.1","resolution":"C:\\Users\\Ethan\\Documents\\Coding\\jsapps\\Knode\\knode-v0.1\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2020-02-12T17:02:11.001Z] [runtime-status] [14784] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\Ethan\\Documents\\Coding\\jsapps\\Knode\\knode-v0.1\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2020-02-12T17:02:11.002Z] [runtime-status] [14784] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.3.0","resolution":"C:\\Users\\Ethan\\Documents\\Coding\\jsapps\\Knode\\knode-v0.1\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[info] +  functions[api]: http function initialized (http://localhost:5001/knode-795ef/us-central1/api).
+[debug] [2020-02-12T17:02:15.623Z] [worker-~diagnostic~-09b1666a-465a-4511-87ce-a7d2fdd8c0a2]: IDLE
+[debug] [2020-02-12T17:02:15.623Z] [runtime-status] [14784] Trigger "api" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "api"
+[debug] [2020-02-12T17:02:15.624Z] [runtime-status] [14784] triggerDefinition {"httpsTrigger":{},"name":"api","entryPoint":"api"}
+[debug] [2020-02-12T17:02:15.624Z] [runtime-status] [14784] Running api in mode HTTPS
+[debug] [2020-02-12T17:02:15.630Z] [runtime-status] [14784] Attempting to listen to socketPath: \\?\pipe\C:\Users\Ethan\Documents\Coding\jsapps\Knode\knode-v0.1\functions\14784
+[debug] [2020-02-12T17:02:15.641Z] [functions] Runtime ready! Sending request!
+[debug] [2020-02-12T17:02:15.756Z] [runtime-status] [14784] Ephemeral server handling POST request
+[info] >  created
+[debug] [2020-02-12T17:02:15.790Z] [runtime-status] [14784] Ephemeral server survived.
+[info] >  { [Error: There is no user record corresponding to this identifier. The user may have been deleted.]
+[info] >    code: 'auth/user-not-found',
+[info] >    message:
+[info] >     'There is no user record corresponding to this identifier. The user may have been deleted.' }
+[info] i  functions: Finished "api" in ~1s
+[debug] [2020-02-12T17:02:16.003Z] [worker-api-5f2eca37-26dc-4f37-8304-a04b0949e076]: IDLE
+[debug] [2020-02-12T17:02:16.004Z] [work-queue] {"queueLength":0,"workRunningCount":0}

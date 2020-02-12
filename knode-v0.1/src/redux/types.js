@@ -1,7 +1,10 @@
 // User Reducer types
-export const userTypes = {
+const userTypes = {
 SET_AUTHENTICATED: 'SET_AUTHENTICATED',
 SET_UNAUTHENTICATED: 'SET_UNAUTHENTICATED',
 SET_USER: 'SET_USER',
 CREATE_USER: 'CREATE_USER',
+SET_ERRORS: 'SET_ERRORS'
 };
+
+export default userTypes;

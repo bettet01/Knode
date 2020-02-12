@@ -1,15 +1,32 @@
-import { userTypes } from '../types'
+import userTypes from '../types'
 
 // axios  -- used to ansyc connect to our api and fetch data 
 import axios from 'axios'
 
 export const loginUser = (userData, history) => (dispatch) => {
+    let resStatus = 0;
     axios
       .post('/login', userData)
       .then((res) => {
-        setAuthorizationHeader(res.data.token);
+        resStatus = res.status;
+        return res.json()
+      })
+      .then(data => {
+        if(resStatus !== 200) {
+          dispatch({
+            type: userTypes.SET_ERRORS,
+            payload: JSON.stringify(data)
+          })
+        }
+        setAuthorizationHeader(data.token);
         dispatch({ type: userTypes.SET_AUTHENTICATED})
-        history.push('/home')
+        history.push('/profile')
+      }).catch(err => {
+        console.log(err)
+        dispatch({
+          type: userTypes.SET_ERRORS,
+          payload: err.response.data
+        })
       })
 }
 
