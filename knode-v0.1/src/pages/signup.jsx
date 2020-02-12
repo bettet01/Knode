@@ -62,7 +62,6 @@ const Signup = props => {
       errors: props.UI.errors
     })
     let errors = props.UI
-    console.log(errors)
   }, [props.UI] );
 
 const handleSubmit = (event) => {
@@ -100,17 +99,66 @@ const handleSubmit = (event) => {
       <Grid item md>
         <Paper className={classes.loginBox} >
           <form onSubmit={handleSubmit} style={{ marginTop: "70px",marginLeft: '35px'}}>
-            <TextField onChange={handleChange} style={{ marginTop: "20px", width: '90%'}} id="email" label="Email" type="email" name="email" /> 
+            <TextField 
+            onChange={handleChange} 
+            style={{ marginTop: "20px", width: '90%'}} 
+            id="email" 
+            label="Email" 
+            type="email" 
+            name="email"
+            helperText={signupData.errors.email}
+            error={signupData.errors.email ? true : false}
+            /> 
             <br/>
-            <TextField onChange={handleChange} className={classes.textfield} id="handle" label="Username" type="username" name="handle" /> 
+            <TextField 
+            onChange={handleChange} 
+            className={classes.textfield} 
+            id="handle" 
+            label="Username" 
+            type="username" 
+            name="handle"
+            helperText={signupData.errors.handle}
+            error={signupData.errors.handle ? true : false}
+            /> 
             <br/>
-            <TextField onChange={handleChange} className={classes.textfield} id="password" label="Password" type="password" name="password" />
+            <TextField
+            onChange={handleChange} 
+            className={classes.textfield} 
+            id="password" 
+            label="Password" 
+            type="password" 
+            name="password" 
+            helperText={signupData.errors.password}
+            error={signupData.errors.password ? true : false}
+            />
             <br/>
-            <TextField onChange={handleChange} className={classes.textfield} id="confirmPassword" label="Confirm Password" type="password" name="confirmPassword" />
+            <TextField 
+            onChange={handleChange} 
+            className={classes.textfield} 
+            id="confirmPassword" 
+            label="Confirm Password" 
+            type="password" 
+            name="confirmPassword" 
+            helperText={signupData.errors.confirmPassword}
+            error={signupData.errors.confirmPassword ? true : false}
+            />
             <br/>
-            <TextField onChange={handleChange} className={classes.textfield} id="birthdate" label="Birthdate" type="birthdate" name="birthdate" />
+            <TextField 
+            onChange={handleChange} 
+            className={classes.textfield} 
+            id="birthdate" 
+            label="Birthdate" 
+            type="birthdate" 
+            name="birthdate" />
             <br/>
-            <TextField  onChange={handleChange} className={classes.textfield} id="phone" label="Phone" type="text" name="phone" />
+            <TextField 
+            onChange={handleChange} 
+            className={classes.textfield} 
+            id="phone" 
+            label="Phone" 
+            type="text" 
+            name="phone" 
+            />
             <br/>
             <br/>
             <Button
