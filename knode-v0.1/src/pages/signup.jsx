@@ -64,29 +64,32 @@ const handleSubmit = (event) => {
         </Paper>
       </Grid>
       <Grid item md>
-        <form onSubmit={handleSubmit} style={{ marginTop: "20%",marginLeft:"85px"}}>
-          <TextField onChange={handleChange} id="email" label="Email" type="email" name="email" /> 
-          <br/>
-          <TextField onChange={handleChange} id="handle" label="Username" type="username" name="handle" /> 
-          <br/>
-          <TextField onChange={handleChange} id="password" label="Password" type="password" name="password" />
-          <br/>
-          <TextField onChange={handleChange} id="confirmPassword" label="Confirm Password" type="password" name="confirmPassword" />
-          <br/>
-          <TextField onChange={handleChange} id="birthdate" label="Birthdate" type="birthdate" name="birthdate" />
-          <br/>
-          <TextField  onChange={handleChange} id="phone" label="Phone" type="text" name="phone" />
-          <br/>
-          <br/>
-          <Button
-                type="submit"
-                variant="contained"
-                color="primary"
-                
-              >
-                Get Started
-              </Button>
-        </form>
+        <Paper style={{ margin: '20%', width: '450px', height: '412px'}}>
+          <form onSubmit={handleSubmit} style={{ marginTop: "70px",marginLeft: '35px'}}>
+            <TextField onChange={handleChange} style={{ marginTop: "20px", width: '90%'}} id="email" label="Email" type="email" name="email" /> 
+            <br/>
+            <TextField onChange={handleChange} style={{width: '90%'}} id="handle" label="Username" type="username" name="handle" /> 
+            <br/>
+            <TextField onChange={handleChange} style={{width: '90%'}} id="password" label="Password" type="password" name="password" />
+            <br/>
+            <TextField onChange={handleChange} style={{width: '90%'}} id="confirmPassword" label="Confirm Password" type="password" name="confirmPassword" />
+            <br/>
+            <TextField onChange={handleChange} style={{width: '90%'}} id="birthdate" label="Birthdate" type="birthdate" name="birthdate" />
+            <br/>
+            <TextField  onChange={handleChange} style={{width: '90%'}} id="phone" label="Phone" type="text" name="phone" />
+            <br/>
+            <br/>
+            <Button
+                  style={{marginLeft: '30%', marginRight: 'auto', marginTop: '20px'}}
+                  type="submit"
+                  variant="contained"
+                  color="primary"
+                  
+                >
+                  Get Started
+                </Button>
+          </form>
+        </Paper>
       </Grid>
     </Grid>
   )

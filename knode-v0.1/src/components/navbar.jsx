@@ -183,7 +183,7 @@ const Navbar = props => {
 
   return (
     <div>
-      <AppBar color='classes.primary' position='relative'>
+      <AppBar style={{width: '100vw'}} color='classes.primary' position='relative'>
         <Toolbar>
           <IconButton
             edge="start"

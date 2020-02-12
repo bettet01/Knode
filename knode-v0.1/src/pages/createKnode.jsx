@@ -90,6 +90,7 @@ const CreateKnode = props => {
       <Grid container className={classes.form}>
       <Grid item lg>
       <Paper style={{margin: '10px', marginLeft: 'auto', marginRight: 'auto', width: '90%', height: '90vh'}}>
+        <br />
         <form onSubmit={handleSubmit}>
         <FormControl>
           <InputLabel id='subject'>Subject</InputLabel>
@@ -159,7 +160,7 @@ const CreateKnode = props => {
             <ListItemText primary="Practice" />
           </StyledMenuItem>
         </StyledMenu>
-        <div style={{marginTop: '400px'}}>
+        <div style={{marginTop: '350px'}}>
         <FormControl>
           <InputLabel id='prerequisites'>Prerequisites</InputLabel>
           <Select
