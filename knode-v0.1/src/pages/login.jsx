@@ -59,6 +59,15 @@ const Login = props => {
 
     const { classes } = props;
 
+    React.useEffect(() => {
+      setLoginData({
+        ...loginData,
+        errors: props.UI.errors
+      })
+      let errors = props.UI
+      console.log(errors)
+    }, [props.UI] );
+
     const handleSubmit = (event) => {
         event.preventDefault();
         const userData = {
@@ -66,7 +75,7 @@ const Login = props => {
           password: loginData.password
         };
         props.loginUser(userData, props.history);
-      };
+    };
 
     const handleChange = (event) => {
         setLoginData({
@@ -91,7 +100,6 @@ const Login = props => {
                 type="email"
                 label="Email"
                 className={classes.textField}
-                helperText={loginData.errors.email}
                 error={loginData.errors.email ? true : false}
                 value={loginData.email}
                 onChange={handleChange}
@@ -103,7 +111,6 @@ const Login = props => {
                 type="password"
                 label="Password"
                 className={classes.textField}
-                helperText={loginData.errors.password}
                 error={loginData.errors.password ? true : false}
                 value={loginData.password}
                 onChange={handleChange}
