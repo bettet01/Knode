@@ -17,11 +17,19 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import List from '@material-ui/core/List';
+import Divider from '@material-ui/core/Divider';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import InboxIcon from '@material-ui/icons/MoveToInbox';
+import Drawer from '@material-ui/core/Drawer'
 
 // Redux stuff
 import { connect } from 'react-redux';
 import { signupUser } from '../redux/actions/userActions';
 import { NavLink } from 'react-router-dom';
+import { Link } from '@material-ui/core';
 
 
 const useStyles = makeStyles(theme => ({
@@ -32,6 +40,16 @@ const useStyles = makeStyles(theme => ({
       dark: '#000000',
       contrastText: '#fff'
     }
+  },
+  list: {
+    width: 250,
+  },
+  fullList: {
+    width: 'auto',
+  },
+  drawerItem: {
+    textDecoration: 'none',
+    color: 'black'
   },
   grow: {
     flexGrow: 1,
@@ -101,6 +119,14 @@ const Navbar = props => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
+  const [drawerState, setDrawerState] = React.useState({
+    left: false,
+  });
+
+  const toggleDrawer = (open) => event => {
+    setDrawerState({ ...drawerState, left: open });
+  };
+
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
@@ -120,6 +146,50 @@ const Navbar = props => {
   const handleMobileMenuOpen = event => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
+
+  const sideList = side => (
+    <div
+      className={classes.list}
+      role="presentation"
+      onClick={toggleDrawer(false)}
+      onKeyDown={toggleDrawer(false)}
+    >
+      <List>
+        { !props.authenticated &&
+        <div>
+          <ListItem key='login'>
+            <NavLink className={classes.drawerItem} to='/login'><ListItemText primary='Login' /></NavLink>
+          </ListItem>
+          <ListItem key='signup'>
+            <NavLink className={classes.drawerItem} to='/signup'><ListItemText primary='Signup' /></NavLink>
+          </ListItem>
+        </div>
+        },
+        {props.authenticated &&
+        <div>
+          <ListItem key='Profile'>
+            <NavLink className={classes.drawerItem} to='/profile'><ListItemText primary='Profile' /></NavLink>
+          </ListItem>
+          <ListItem key='Create'>
+            <NavLink className={classes.drawerItem} to='/create'><ListItemText primary='Create Knode' /></NavLink>
+          </ListItem>
+          <ListItem key='learn'>
+            <NavLink className={classes.drawerItem} to='/learn'><ListItemText primary='Learn' /></NavLink>
+          </ListItem>
+        </div>
+        }
+      </List>
+      <Divider />
+      <List>
+        {['All mail', 'Trash', 'Spam'].map((text, index) => (
+          <ListItem button key={text}>
+            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+            <ListItemText primary={text} />
+          </ListItem>
+        ))}
+      </List>
+    </div>
+  );
 
 
   const menuId = 'primary-search-account-menu';
@@ -187,30 +257,21 @@ const Navbar = props => {
         <Toolbar>
           <IconButton
             edge="start"
+            onClick={toggleDrawer(true)}
             className={classes.menuButton}
             color="inherit"
             aria-label="open drawer"
           >
             <MenuIcon />
           </IconButton>
+            <Drawer open={drawerState.left} onClose={toggleDrawer(false)}>
+            {sideList('left')}
+            </Drawer>
           <NavLink to='/'style={{textDecoration: 'none', color: 'black'}} >
             <Typography className={classes.title} variant="h5" noWrap>
               Knode
             </Typography>
           </NavLink>
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </div>
           <div className={classes.grow} />
           {
               props.authenticated &&

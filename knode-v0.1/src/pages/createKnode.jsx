@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 // Redux stuff
 import { connect } from 'react-redux';
@@ -13,7 +12,6 @@ import MenuItem from '@material-ui/core/MenuItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import CreateIcon from '@material-ui/icons/Create';
-import DraftsIcon from '@material-ui/icons/Drafts';
 import Fab from '@material-ui/core/Fab'
 import AddIcon from '@material-ui/icons/Add'
 import FormControl from '@material-ui/core/FormControl';
@@ -23,7 +21,7 @@ import AssessmentIcon from '@material-ui/icons/Assessment';
 import TextField from '@material-ui/core/TextField'
 
 
-import { Grid, Paper, Button, MenuList } from '@material-ui/core';
+import { Grid, Paper, Button, Typography } from '@material-ui/core';
 
 // set the styles from the global styles file
 const styles = (theme) => ({
@@ -202,7 +200,56 @@ const CreateKnode = props => {
       </Grid>
       <Grid item lg>
       <Paper style={{margin: '10px', marginRight: 'auto', marginLeft: 'auto', width: '90%', height: '90vh'}}>
-
+        <div className={classes.descriptionBox}>
+          <br />
+          <Paper style={{margin: '20px', marginTop: '10px', marginBottom: '10px', backgroundColor: '#f4f4f4'}} >
+            <Typography style={{paddingTop: '10px', textAlign: 'center'}} >Description</Typography>
+            <br />
+            <TextField
+            style={{width: '90%', paddingBottom: '20px'}}
+            id="outlined-multiline-static"
+            multiline
+            rows="4"
+            variant="outlined"
+          />
+          </Paper>
+        </div>
+        <div className={classes.ExampleBox}>
+          <br />
+          <Paper style={{margin: '20px', marginTop: '10px', marginBottom: '10px', backgroundColor: '#f4f4f4'}} >
+            <Typography style={{paddingTop: '10px', textAlign: 'center'}} >Example</Typography>
+            <br />
+            <TextField
+            style={{width: '90%', paddingBottom: '20px'}}
+            id="outlined-multiline-static"
+            multiline
+            rows="4"
+            variant="outlined"
+          />
+          </Paper>
+        </div>
+        <div className={classes.practiceBox}>
+          <br />
+          <Paper style={{margin: '20px', marginTop: '10px', marginBottom: '10px', backgroundColor: '#f4f4f4'}} >
+            <Typography style={{paddingTop: '10px', textAlign: 'center'}} >Practice</Typography>
+            <br />
+            <TextField
+            style={{width: '90%', paddingBottom: '20px'}}
+            label='Question'
+            id="outlined-multiline-static"
+            multiline
+            variant="outlined"
+          />
+          <br />
+          <TextField
+            style={{width: '100px', paddingBottom: '20px'}}
+            label='Answer'
+            id="outlined-multiline-static"
+            multiline
+            variant="outlined"
+          />
+          </Paper>
+        </div>
       </Paper>
       </Grid>
       </Grid>
@@ -210,17 +257,12 @@ const CreateKnode = props => {
   )
 }
 
-
-CreateKnode.propTypes = {
-
-}
-
 const mapStateToProps = (state) => ({
   user: state.user,
 });
 
 const mapActionsToProps = {
-  signupUser
+  
 };
 
 export default connect(
