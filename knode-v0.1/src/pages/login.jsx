@@ -100,6 +100,7 @@ const Login = props => {
                 type="email"
                 label="Email"
                 className={classes.textField}
+                helperText={loginData.errors.email}
                 error={loginData.errors.email ? true : false}
                 value={loginData.email}
                 onChange={handleChange}
@@ -111,6 +112,7 @@ const Login = props => {
                 type="password"
                 label="Password"
                 className={classes.textField}
+                helperText={loginData.errors.password}
                 error={loginData.errors.password ? true : false}
                 value={loginData.password}
                 onChange={handleChange}

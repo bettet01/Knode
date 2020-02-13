@@ -38,7 +38,7 @@ export const signupUser = (signupData, history) => (dispatch) => {
       console.log(res)
       setAuthorizationHeader(res.data.token);
       dispatch({ type: userTypes.CREATE_USER})
-      history.push('/home')
+      history.push('/profile')
     }).catch(err => {
       dispatch({
         type: userTypes.SET_ERRORS,
