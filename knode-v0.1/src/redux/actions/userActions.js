@@ -20,6 +20,7 @@ export const loginUser = (userData, history) => (dispatch) => {
           })
         }
         setAuthorizationHeader(data.token);
+        dispatch(getUserData());
         dispatch({ type: userTypes.SET_AUTHENTICATED})
         history.push('/profile')
       }).catch(err => {
@@ -29,7 +30,7 @@ export const loginUser = (userData, history) => (dispatch) => {
           payload: err.response.data
         })
       })
-}
+};
 
 export const signupUser = (signupData, history) => (dispatch) => {
   axios
@@ -37,6 +38,7 @@ export const signupUser = (signupData, history) => (dispatch) => {
     .then((res) => {
       console.log(res)
       setAuthorizationHeader(res.data.token);
+      dispatch(getUserData());
       dispatch({ type: userTypes.CREATE_USER})
       history.push('/profile')
     }).catch(err => {
@@ -45,7 +47,20 @@ export const signupUser = (signupData, history) => (dispatch) => {
         payload: err.response.data
       })
     })
-}
+};
+
+export const getUserData = () => (dispatch) => {
+  axios
+    .get('/user')
+    .then((res) => {
+      console.log(res)
+      dispatch({
+        type: userTypes.SET_USER,
+        payload: res.data
+      })
+    })
+    .catch((err) => console.log(err));
+};
 
 
 const setAuthorizationHeader = (token) => {

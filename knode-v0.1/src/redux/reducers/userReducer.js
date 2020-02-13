@@ -24,6 +24,11 @@ export default function (state = initialState, action) {
           ...state,
           authenticated: true
         }
+        case userTypes.SET_USER:
+          return {
+            ...state,
+            user: action.payload
+          }
     default:
       return state;
   }

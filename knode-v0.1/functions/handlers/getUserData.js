@@ -3,7 +3,8 @@ const { db } = require('../util/admin');
 
 exports.getUserData = (req, res) => {
   let userData = {};
-  db.doc(`/users/${req.body.handle}`)
+  console.log(req.params.handle)
+  db.doc(`/users/${req.params.handle}`)
     .get()
     .then((doc) => {
       if (doc.exists) {
