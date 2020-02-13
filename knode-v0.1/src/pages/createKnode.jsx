@@ -19,6 +19,9 @@ import Select from '@material-ui/core/Select';
 import AddToQueueIcon from '@material-ui/icons/AddToQueue';
 import AssessmentIcon from '@material-ui/icons/Assessment';
 import TextField from '@material-ui/core/TextField'
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
 
 
 import { Grid, Paper, Button, Typography } from '@material-ui/core';
@@ -164,7 +167,6 @@ const CreateKnode = props => {
         </StyledMenu>
         <div style={{marginTop: '350px'}}>
         <FormControl>
-          <InputLabel id='prerequisites'>Prerequisites</InputLabel>
           <Select
             style={{width: '300px'}}
             labelId='prerequisites'
@@ -172,24 +174,49 @@ const CreateKnode = props => {
             value={subjectObject}
             onChange={handleChange}
           >
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
+            <FormGroup>
+              <FormControlLabel
+                control={<Checkbox checked={'1'} onChange={handleChange} value="gilad" />}
+                label="Gilad Gray"
+              />
+              <FormControlLabel
+                control={<Checkbox checked={'2'} onChange={handleChange} value="jason" />}
+                label="Jason Killian"
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox checked={'3'} onChange={handleChange} value="antoine" />
+                }
+                label="Antoine Llorca"
+              />
+            </FormGroup>
           </Select>
         </FormControl>
         <br />
         <FormControl>
-          <InputLabel id='future-connections'>Future Connections</InputLabel>
           <Select
             style={{width: '300px'}}
-            labelId='future-connections'
-            id='future-connections-select' 
+            labelId='Future Connections'
+            id='prerequisites-select' 
             value={subjectObject}
             onChange={handleChange}
           >
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
+            <FormGroup>
+              <FormControlLabel
+                control={<Checkbox checked={'1'} onChange={handleChange} value="gilad" />}
+                label="Gilad Gray"
+              />
+              <FormControlLabel
+                control={<Checkbox checked={'2'} onChange={handleChange} value="jason" />}
+                label="Jason Killian"
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox checked={'3'} onChange={handleChange} value="antoine" />
+                }
+                label="Antoine Llorca"
+              />
+            </FormGroup>
           </Select>
         </FormControl>
         <br />
