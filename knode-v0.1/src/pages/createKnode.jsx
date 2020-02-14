@@ -2,7 +2,7 @@ import React from 'react'
 
 // Redux stuff
 import { connect } from 'react-redux';
-import { signupUser } from '../redux/actions/userActions';
+import { getSubjects } from '../redux/actions/dataActions';
 
 // Material Ui stuff
 import withStyles from '@material-ui/core/styles/withStyles';
@@ -67,11 +67,19 @@ const StyledMenuItem = withStyles(theme => ({
 }))(MenuItem);
 
 
+
 const CreateKnode = props => {
   const { classes} = props;
-  const [knodeModules, setKnodeModules] = React.useState([])
+  const [subjectList, setSubjectList] = React.useState({})
   const [subjectObject, setSubjectObject] =  React.useState('')
   const [anchorEl, setAnchorEl] = React.useState(null);
+
+  React.useEffect(() => {
+    setSubjectList({
+      ...subjectList,
+      subjects: props.data.subjects.data
+    })
+  }, [])
 
   const handleChange = event => {
     setSubjectObject(event.target.value);
@@ -90,6 +98,7 @@ const CreateKnode = props => {
     console.log('it did it!')
   };
 
+
   return (
     <div>
       <Grid container className={classes.form}>
@@ -106,9 +115,14 @@ const CreateKnode = props => {
             value={subjectObject}
             onChange={handleChange}
           >
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
+          {
+            Object.keys(props.data.subjects.data).map((item) =>{
+              console.log(item)
+              return(
+              <MenuItem value={item}>{item}</MenuItem>
+              )
+            })
+          }
           </Select>
         </FormControl>
         <br />
@@ -121,9 +135,14 @@ const CreateKnode = props => {
             value={subjectObject}
             onChange={handleChange}
           >
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
+          {
+            Object.keys(props.data.subjects.data).map((item) =>{
+              console.log(item)
+              return(
+              <MenuItem value={item}>{item}</MenuItem>
+              )
+            })
+          }
           </Select>
         </FormControl>
         <br/ >
@@ -286,10 +305,11 @@ const CreateKnode = props => {
 
 const mapStateToProps = (state) => ({
   user: state.user,
+  data: state.data
 });
 
 const mapActionsToProps = {
-  
+  getSubjects
 };
 
 export default connect(

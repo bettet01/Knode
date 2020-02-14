@@ -1,7 +1,14 @@
-import userTypes from '../types'
-
 // axios  -- used to ansyc connect to our api and fetch data 
 import axios from 'axios'
+
+// User Reducer types
+export const userTypes = {
+  SET_AUTHENTICATED: 'SET_AUTHENTICATED',
+  SET_UNAUTHENTICATED: 'SET_UNAUTHENTICATED',
+  SET_USER: 'SET_USER',
+  CREATE_USER: 'CREATE_USER',
+  SET_ERRORS: 'SET_ERRORS',
+  };
 
 export const loginUser = (userData, history) => (dispatch) => {
     let resStatus = 0;
@@ -13,16 +20,18 @@ export const loginUser = (userData, history) => (dispatch) => {
         return res.data;
       })
       .then(data => {
-        if(resStatus !== 200) {
+        if(resStatus === 200) {
           dispatch({
             type: userTypes.SET_ERRORS,
             payload: JSON.stringify(data)
           })
+          setAuthorizationHeader(data.token);
+          dispatch(getUserData());
+          dispatch({ type: userTypes.SET_AUTHENTICATED})
+          history.push('/profile')
+        } else {
+          console.log("something went wrong")
         }
-        setAuthorizationHeader(data.token);
-        dispatch(getUserData());
-        dispatch({ type: userTypes.SET_AUTHENTICATED})
-        history.push('/profile')
       }).catch(err => {
         console.log(err)
         dispatch({

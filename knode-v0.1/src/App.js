@@ -3,6 +3,7 @@ import './App.css';
 
 // Authroute is a util Route that check to make sure the user is authenticated
 import Authroute from './util/AuthRoute'
+import DataHarvester from './util/DataHarvester'
 // used to consume our apis 
 import axios from 'axios'
 
@@ -32,18 +33,19 @@ import home from './pages/home'
 import CreateKnode from './pages/createKnode'
 
 
-
-
-
 axios.defaults.baseURL =
   'https://us-central1-knode-795ef.cloudfunctions.net/api';
 
 const theme = createMuiTheme(defaultTheme)
 
 function App() {
+
+
+
   return (
     <MuiThemeProvider theme={theme} >
       <Provider store={store} >
+        <DataHarvester />
         <div className='container'>
           <Router>
             <Navbar />
