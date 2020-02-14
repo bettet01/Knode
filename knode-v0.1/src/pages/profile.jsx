@@ -57,6 +57,7 @@ const styles = (theme) => ({
 });
 
 const Profile = props =>{ 
+  const [ userData, setUserData ] = React.useState({})
 // Project: Begin UI for Profile Page 
 // Source: For Wireframe Plase Vist https://www.canva.com/teams
 // Project WIPS: Avatar and Bio Page  
@@ -67,7 +68,7 @@ return(
     <Grid container spacing={3}>
       <Grid className={classes.grid} item xs={3}>
        <h5 className={classes.profileHeader}> Profile Picture and Bio Section </h5>
-      <Avatar className={classes.avatarImage} >K </Avatar> 
+<Avatar className={classes.avatarImage} >{props.user.user.handle}</Avatar> 
       <Paper className={classes.profilePaper} elevation={5}> This Section Will Hold the Bio Page </Paper>
       </Grid>   
       <Grid item xs={9}>

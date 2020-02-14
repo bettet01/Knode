@@ -3,7 +3,7 @@ const { db } = require('../util/admin')
 
 exports.getAuthenticatedUser = (req, res) => {
   let userData = {};
-  db.doc(`/user/${req.user.handle}`)
+  db.doc(`/users/${req.user.handle}`)
     .get()
     .then((doc) => {
       if(doc.exists) {
