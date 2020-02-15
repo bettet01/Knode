@@ -2,7 +2,7 @@ import React from 'react'
 
 // Redux stuff
 import { connect } from 'react-redux';
-import { getSubjects } from '../redux/actions/dataActions';
+import { getSubjects, getCategories } from '../redux/actions/dataActions';
 
 // Material Ui stuff
 import withStyles from '@material-ui/core/styles/withStyles';
@@ -22,8 +22,6 @@ import TextField from '@material-ui/core/TextField'
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-
-
 import { Grid, Paper, Button, Typography } from '@material-ui/core';
 
 // set the styles from the global styles file
@@ -71,7 +69,22 @@ const StyledMenuItem = withStyles(theme => ({
 const CreateKnode = props => {
   const { classes} = props;
   const [subjectList, setSubjectList] = React.useState({})
-  const [subjectObject, setSubjectObject] =  React.useState('')
+  const [categoriesList, setCategoriesList] = React.useState({})
+  const [subjectObject, setSubjectObject] =  React.useState({
+    subject: '',
+    discipline: '',
+    knodeName: '',
+    handle: props.user.handle,
+    prerequisites: [],
+    postrequisites: [],
+    description: '',
+    example: '',
+    practice: {
+      question: '',
+      answer: ''
+    }
+  })
+
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   React.useEffect(() => {
@@ -81,8 +94,69 @@ const CreateKnode = props => {
     })
   }, [])
 
+  React.useEffect(() => {
+    setCategoriesList({
+      ...categoriesList,
+      data: props.data.categories
+    })
+  }, [props.data] )
+
+
   const handleChange = event => {
-    setSubjectObject(event.target.value);
+  }
+
+  const handleCategoryChange = event => {
+    setSubjectObject({
+      ...subjectObject,
+      discipline: event.target.value
+    });
+  };
+
+  const handleSubjectChange = event => {
+    setSubjectObject({
+      ...subjectObject,
+      subject: event.target.value
+    });
+    props.getCategories(event.target.value);
+  };
+
+  const handleKnodeChange = event => {
+    setSubjectObject({
+      ...subjectObject,
+      knodeName: event.target.value
+    });
+  };
+
+  const handleDescriptionChange = event => {
+    setSubjectObject({
+      ...subjectObject,
+      description: event.target.value
+    });
+  };
+
+  const handleExampleChange = event => {
+    setSubjectObject({
+      ...subjectObject,
+      example: event.target.value
+    });
+  };
+
+  const handlePracticeChange1 = event => {
+    setSubjectObject({
+      ...subjectObject,
+      practice: {
+        question: event.target.value
+      }
+    });
+  };
+
+  const handlePracticeChange2 = event => {
+    setSubjectObject({
+      ...subjectObject,
+      practice: {
+        answer: event.target.value
+      }
+    });
   };
 
   const handleClick = event => {
@@ -112,10 +186,10 @@ const CreateKnode = props => {
             style={{width: '300px'}}
             labelId='subject'
             id='subject-select' 
-            value={subjectObject}
-            onChange={handleChange}
+            value={subjectObject.subject}
+            onChange={handleSubjectChange}
           >
-          {
+          { subjectList.subjects &&
             Object.keys(props.data.subjects.data).map((item) =>{
               console.log(item)
               return(
@@ -132,21 +206,27 @@ const CreateKnode = props => {
             style={{width: '300px'}}
             labelId='category'
             id='category-select' 
-            value={subjectObject}
-            onChange={handleChange}
+            value={subjectObject.discipline}
+            onChange={handleCategoryChange}
           >
-          {
-            Object.keys(props.data.subjects.data).map((item) =>{
-              console.log(item)
-              return(
-              <MenuItem value={item}>{item}</MenuItem>
-              )
-            })
+          { categoriesList.data && 
+              Object.keys(categoriesList.data).map((item) => {
+                return(
+                <MenuItem value={item}>{item}</MenuItem>
+                )
+              })
+            }
           }
           </Select>
         </FormControl>
         <br/ >
-        <TextField style={{width: '300px'}} id="standard-basic" label="New Knode Name" />
+        <TextField 
+        style={{width: '300px'}} 
+        id="standard-basic" 
+        label="New Knode Name" 
+        value={subjectObject.knodeName}
+        onChange={handleKnodeChange}
+        />
         <br />
         <Fab 
           onClick={handleClick}
@@ -257,6 +337,8 @@ const CreateKnode = props => {
             multiline
             rows="4"
             variant="outlined"
+            value={subjectObject.description}
+            onChange={handleDescriptionChange}
           />
           </Paper>
         </div>
@@ -271,6 +353,8 @@ const CreateKnode = props => {
             multiline
             rows="4"
             variant="outlined"
+            value={subjectObject.example}
+            onChange={handleExampleChange}
           />
           </Paper>
         </div>
@@ -285,6 +369,8 @@ const CreateKnode = props => {
             id="outlined-multiline-static"
             multiline
             variant="outlined"
+            value={subjectObject.practice.question}
+            onChange={handlePracticeChange1}
           />
           <br />
           <TextField
@@ -293,6 +379,8 @@ const CreateKnode = props => {
             id="outlined-multiline-static"
             multiline
             variant="outlined"
+            value={subjectObject.practice.answer}
+            onchange={handlePracticeChange2}
           />
           </Paper>
         </div>
@@ -309,7 +397,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapActionsToProps = {
-  getSubjects
+  getSubjects,
+  getCategories
 };
 
 export default connect(

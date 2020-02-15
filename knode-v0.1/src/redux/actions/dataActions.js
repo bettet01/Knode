@@ -17,4 +17,15 @@ export const getSubjects = () => (dispatch) => {
     })
 }
 
+export const getCategories = (subject) => (dispatch) => {
+  axios
+    .get(`/learn/${subject}/categories`)
+    .then((data) => {
+      dispatch({
+        type: dataTypes.GET_CATEGORIES,
+        payload: data.data.subjects
+      })
+    })
+}
+
 

@@ -13,6 +13,11 @@ export default function (state = initialState, action) {
         ...state,
         subjects: action.payload
       }
+    case dataTypes.GET_CATEGORIES:
+        return{
+          ...state,
+          categories: action.payload
+        }
     default:
       return state;
   }
